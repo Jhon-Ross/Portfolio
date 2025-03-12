@@ -1,9 +1,19 @@
 const express = require("express");
+const path = require("path");
+
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(express.static("public"));
+// Servir arquivos estáticos da raiz e da pasta "src"
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "src")));
 
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+// Rota para servir o index.html corretamente
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Inicia o servidor
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
