@@ -64,7 +64,7 @@
 
         // assign a circle to each point
         for(var i in points) {
-            var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
+            var c = new Circle(points[i], 2+Math.random()*2, 'rgba(0,255,255,0.3)'); //cor azul neon
             points[i].circle = c;
         }
     }
@@ -154,7 +154,7 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p.closest[i].x, p.closest[i].y);
-            ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
+            ctx.strokeStyle = 'rgba(255,255,255,'+ p.active+')';
             ctx.stroke();
         }
     }

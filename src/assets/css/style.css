@@ -70,6 +70,10 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
+.container {
+    position: relative;
+}
+
 /* Estilo das seções */
 section {
     height: 100vh; /* Altura fixa de 100% da viewport */
@@ -80,9 +84,8 @@ section {
     border-bottom: 2px solid var(--cor-primaria); /* Barra de separação */
 }
 
-/* Header */
 #large-header {
-    background-image: url('/src/assets/img/Home.jpg');
+    background-image: url('');
     position: absolute;
     z-index: -1; /* Coloca o fundo atrás de tudo */
 }
@@ -115,75 +118,151 @@ section {
 	}
 }
 
-.avatar {
-    width: 20%; /* Define a largura como 20% do contêiner pai */
-    aspect-ratio: 1 / 1; /* Mantém a proporção 1:1 (quadrado ou círculo) */
-    border: 1px solid; /* Adiciona uma borda de 1px (cor padrão é preta) */
-    border-radius: 50%; /* Transforma a imagem em um círculo */
-    position: relative; /* Define o posicionamento como relativo */
-    display: block; /* Faz a imagem se comportar como um bloco */
-    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+/* Estilos para a seção Home */
+#home {
+    position: relative; /* Adicionado para permitir o posicionamento absoluto do conteúdo */
+    min-height: 100vh; /* Garante que a seção ocupe pelo menos a altura da tela */
 }
 
-/* Estilo do título e subtítulo na seção Home */
-#home .titulo {
-    font-size: 3rem; /* Tamanho da fonte */
-    color: var(--cor-primaria); /* Cor do texto */
-    animation: brilho 2s infinite alternate; /* Efeito de brilho */
-    margin-bottom: 0.5rem; /* Margem inferior */
-    text-align: center; /* Centraliza o texto */
-}
-#home .subtitulo {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    color: var(--cor-secundaria); /* Cor do texto */
-    font-weight: bold; /* Deixa em negrito */
-    margin-bottom: 2rem; /* Margem inferior */
-    text-align: center; /* Centraliza o texto */
-}
-/* Efeito de brilho (se já não estiver definido) */
-@keyframes brilho {
-    from {
-        text-shadow: 0 0 10px var(--cor-primaria), 0 0 20px var(--cor-primaria);
-    }
-    to {
-        text-shadow: 0 0 20px var(--cor-primaria), 0 0 40px var(--cor-primaria);
-    }
+/* Estilo para o container principal da seção Home */
+#home .home-conteudo {
+    position: absolute; /* Adicionado para posicionar o conteúdo */
+    top: 20%;        /* Ajuste este valor para a posição vertical */
+    left: 10%;       /* Ajuste este valor para a posição horizontal */
+    display: flex;    /* Alinha os elementos lado a lado */
+    align-items: center; /* Alinha verticalmente ao centro */
+    max-width: 1200px; /* Define uma largura máxima para o conteúdo */
+    margin: 0;       /* Remova a margem automática para permitir o posicionamento */
+    padding: 2rem;    /* Espaçamento interno */
+    z-index: 1;      /* Garante que o conteúdo fique acima do fundo */
 }
 
-/* Estilo para o contêiner dos botões */
-.botoes {
-    display: flex; /* Para alinhar os botões horizontalmente */
-    justify-content: center; /* Centraliza os botões horizontalmente */
-    margin-top: 1.5rem; /* Espaçamento acima dos botões */
-    gap: 1rem; /* Espaçamento entre os botões */
+  
+  /* Container para o avatar */
+  .home-conteudo .avatar-container {
+      width: 30%; /* Ocupa 30% da largura do home-conteudo */
+      display: flex;
+      justify-content: center; /* Centraliza o avatar horizontalmente dentro do container */
+  }
+  
+  .avatar {
+      width: 80%; /* Ajuste conforme o tamanho desejado */
+      aspect-ratio: 1 / 1;
+      border: 1px solid;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto;
+  }
+  
+  /* Container para os textos (Título, Subtítulo, Botões) */
+  .home-conteudo .texto-container {
+      width: 70%; /* Ocupa 70% da largura do home-conteudo */
+      padding-left: 2rem; /* Espaçamento à esquerda */
+      text-align: left; /* Alinha o texto à esquerda */
+  }
+  
+  #home .titulo {
+      font-size: 3rem;
+      color: var(--cor-primaria);
+      animation: brilho 2s infinite alternate;
+      margin-bottom: 0.5rem;
+  }
+  
+  #home .subtitulo {
+      font-size: 1.5rem;
+      color: var(--cor-secundaria);
+      font-weight: bold;
+      margin-bottom: 2rem;
+  }
+  
+  /* Estilo para o contêiner dos botões (sem alterações) */
+  .botoes {
+      display: flex;
+      justify-content: flex-start; /* Alinha os botões à esquerda */
+      margin-top: 1.5rem;
+      gap: 1rem;
+  }
+  
+  /* Estilos para os botões (sem alterações) */
+  .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--cor-primaria);
+      background-color: transparent;
+      border: 2px solid var(--cor-primaria);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+  
+  .botao:hover {
+      background-color: var(--cor-primaria);
+      color: var(--cor-fundo);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+  }
+  
+  .botao i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+  }
+  
+  /* Efeito de brilho (se já não estiver definido) */
+  @keyframes brilho {
+      from {
+          text-shadow: 0 0 10px var(--cor-primaria), 0 0 20px var(--cor-primaria);
+      }
+      to {
+          text-shadow: 0 0 20px var(--cor-primaria), 0 0 40px var(--cor-primaria);
+      }
+  }
+
+
+/* Estilos para a seção Sobre */
+#sobre {
+    padding: 4rem 0;
+    border-bottom: 2px solid var(--cor-primaria);
+    text-align: center; /* Centraliza o título */
 }
 
-/* Estilo base para os botões */
-.botao {
-    display: inline-flex; /* Para alinhar ícone e texto */
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    padding: 0.75rem 1.5rem; /* Espaçamento interno */
-    font-size: 1rem; /* Tamanho da fonte */
-    font-weight: 500; /* Peso da fonte */
-    color: var(--cor-primaria); /* Cor do texto */
-    background-color: transparent; /* Fundo transparente */
-    border: 2px solid var(--cor-primaria); /* Borda com cor primária */
-    border-radius: 5px; /* Bordas arredondadas */
-    text-decoration: none; /* Remove sublinhado */
-    transition: all 0.3s ease; /* Transição suave */
+#sobre .container {
+    max-width: 800px; /* Limita a largura do conteúdo */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 20px; /* Adiciona espaço nas laterais */
 }
 
-/* Efeito hover para os botões */
-.botao:hover {
-    background-color: var(--cor-primaria); /* Fundo com cor primária */
-    color: var(--cor-fundo); /* Texto com cor de fundo */
-    transform: translateY(-2px); /* Efeito de levantar o botão */
-    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3); /* Sombra neon */
+#sobre h2 {
+    font-size: 2.5rem; /* Aumenta o tamanho do título */
+    color: var(--cor-primaria);
+    margin-bottom: 1.5rem; /* Adiciona espaço abaixo do título */
 }
 
-/* Estilo para os ícones dentro dos botões */
-.botao i {
-    margin-right: 0.5rem; /* Espaçamento entre ícone e texto */
-    font-size: 1.2rem; /* Tamanho do ícone */
+.descricao-pessoal {
+    margin-bottom: 2rem;
+}
+
+.descricao-pessoal-conteudo {
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.descricao-pessoal-conteudo p {
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+    line-height: 1.7; /* Aumenta o espaçamento entre linhas */
+    margin-bottom: 1.5rem; /* Adiciona espaço entre os parágrafos */
+    color: var(--cor-texto); /* Define a cor do texto */
+}
+
+.descricao-pessoal-conteudo strong {
+    color: var(--cor-primaria); /* Define a cor das palavras em destaque */
+    font-weight: bold;
+}
+
+.separador {
+    border: none;
+    border-top: 1px solid var(--cor-primaria); /* Cor da linha */
+    margin: 2rem 0;
 }

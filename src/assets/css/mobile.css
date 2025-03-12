@@ -1,42 +1,32 @@
+/* Media Query para telas menores (max-width: 768px) */
 @media (max-width: 768px) {
-    nav .container {
-        flex-direction: column;
-        text-align: center;
+    #home .home-conteudo {
+        top: 10%;    /* Ajuste a posição vertical para telas menores */
+        left: 5%;   /* Ajuste a posição horizontal para telas menores */
+        flex-direction: column; /* Empilha os elementos verticalmente */
+        align-items: center; /* Centraliza os elementos horizontalmente */
+        text-align: center; /* Centraliza o texto */
     }
 
-    nav ul {
-        flex-direction: column;
-        padding-top: 10px;
+    .home-conteudo .avatar-container {
+        width: auto; /* O container se ajusta ao tamanho do avatar */
+        margin-bottom: 1rem; /* Adiciona um espaço abaixo do avatar */
     }
 
-    nav ul li {
-        margin: 5px 0;
+    .home-conteudo .texto-container {
+        width: 100%; /* Ocupa 100% da largura do home-conteudo */
+        padding-left: 0; /* Remove o espaçamento à esquerda */
     }
 
-    .container {
-        width: 95%;
-    }
-
-    h1, h2 {
-        font-size: 1.5rem;
+    .botoes {
+        justify-content: center; /* Centraliza os botões */
     }
 }
 
+/* Media Query para telas ainda menores (max-width: 480px) */
 @media (max-width: 480px) {
-    nav .titulo {
-        font-size: 1.5rem;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-    }
-
-    section {
-        padding: 3rem 0; /* Ajuste para dispositivos móveis */
-        margin-bottom: 2rem; /* Ajuste para dispositivos móveis */
-    }
-
-    .projeto {
-        text-align: center;
+    #home .home-conteudo {
+        top: 5%;    /* Ajuste a posição vertical para telas ainda menores */
+        left: 2%;   /* Ajuste a posição horizontal para telas ainda menores */
     }
 }
