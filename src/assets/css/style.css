@@ -1,3 +1,4 @@
+/* Estilos globais */
 * {
     text-decoration: none;
     margin: 0;
@@ -6,15 +7,15 @@
 }
 
 :root {
-    --cor-primaria: #00ffff; /* Azul neon claro */
-    --cor-secundaria: #ffffff; /* Branco */
-    --cor-fundo: #1a1a1a; /* Preto quase sólido */
-    --cor-texto: #e0e0e0; /* Cinza claro */
-    --cor-hover: #00cccc; /* Azul mais escuro para hover */
+    --cor-primaria: #00ffff;
+    --cor-secundaria: #ffffff;
+    --cor-fundo: #1a1a1a;
+    --cor-texto: #e0e0e0;
+    --cor-hover: #00cccc;
 }
 
 html {
-    scroll-behavior: smooth; /* Rolagem suave */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -22,10 +23,17 @@ body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
-    padding-top: 10px; /* Ajuste conforme a altura da barra de navegação */
+    padding-top: 10px; /* Ajuste para a altura da barra de navegação */
 }
 
-/* Barra de Navegação (Cabeçalho Fixo) */
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Barra de Navegação */
 nav {
     background-color: var(--cor-fundo);
     padding: 1rem 0;
@@ -34,16 +42,13 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
-    height: 60px; /* Ajuste a altura da barra de navegação */
+    height: 60px;
 }
 
 nav .container {
     display: flex;
-    justify-content: flex-end; /* Alinha os itens à direita */
+    justify-content: flex-end;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 nav ul {
@@ -70,175 +75,163 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-.container {
-    position: relative;
-}
-
-/* Estilo das seções */
+/* Seções */
 section {
-    height: 100vh; /* Altura fixa de 100% da viewport */
-    padding: 4rem 0; /* Espaçamento interno */
+    padding: 4rem 0;
     display: flex;
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    border-bottom: 2px solid var(--cor-primaria); /* Barra de separação */
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--cor-primaria);
+    min-height: 100vh; /* Garante que ocupe pelo menos a altura da tela */
 }
 
+/* Fundo Interativo */
 #large-header {
-    background-image: url('');
     position: absolute;
-    z-index: -1; /* Coloca o fundo atrás de tudo */
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .main-title {
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	color: #f9f1e9;
-	text-align: center;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: #f9f1e9;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
 }
 
 .demo-1 .main-title {
-	text-transform: uppercase;
-	font-size: 4.2em;
-	letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 4.2em;
+    letter-spacing: 0.1em;
 }
 
 .main-title .thin {
-	font-weight: 200;
+    font-weight: 200;
 }
 
-@media only screen and (max-width : 768px) {
-	.demo-1 .main-title {
-		font-size: 3em;
-	}
-}
-
-/* Estilos para a seção Home */
+/* Seção Home */
 #home {
-    position: relative; /* Adicionado para permitir o posicionamento absoluto do conteúdo */
-    min-height: 100vh; /* Garante que a seção ocupe pelo menos a altura da tela */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* Estilo para o container principal da seção Home */
 #home .home-conteudo {
-    position: absolute; /* Adicionado para posicionar o conteúdo */
-    top: 20%;        /* Ajuste este valor para a posição vertical */
-    left: 10%;       /* Ajuste este valor para a posição horizontal */
-    display: flex;    /* Alinha os elementos lado a lado */
-    align-items: center; /* Alinha verticalmente ao centro */
-    max-width: 1200px; /* Define uma largura máxima para o conteúdo */
-    margin: 0;       /* Remova a margem automática para permitir o posicionamento */
-    padding: 2rem;    /* Espaçamento interno */
-    z-index: 1;      /* Garante que o conteúdo fique acima do fundo */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    width: 90%;
+    max-width: 1200px; /* Largura máxima para o conteúdo */
+    padding: 2rem;
+    z-index: 1;
 }
 
-  
-  /* Container para o avatar */
-  .home-conteudo .avatar-container {
-      width: 30%; /* Ocupa 30% da largura do home-conteudo */
-      display: flex;
-      justify-content: center; /* Centraliza o avatar horizontalmente dentro do container */
-  }
-  
-  .avatar {
-      width: 80%; /* Ajuste conforme o tamanho desejado */
-      aspect-ratio: 1 / 1;
-      border: 1px solid;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto;
-  }
-  
-  /* Container para os textos (Título, Subtítulo, Botões) */
-  .home-conteudo .texto-container {
-      width: 70%; /* Ocupa 70% da largura do home-conteudo */
-      padding-left: 2rem; /* Espaçamento à esquerda */
-      text-align: left; /* Alinha o texto à esquerda */
-  }
-  
-  #home .titulo {
-      font-size: 3rem;
-      color: var(--cor-primaria);
-      animation: brilho 2s infinite alternate;
-      margin-bottom: 0.5rem;
-  }
-  
-  #home .subtitulo {
-      font-size: 1.5rem;
-      color: var(--cor-secundaria);
-      font-weight: bold;
-      margin-bottom: 2rem;
-  }
-  
-  /* Estilo para o contêiner dos botões (sem alterações) */
-  .botoes {
-      display: flex;
-      justify-content: flex-start; /* Alinha os botões à esquerda */
-      margin-top: 1.5rem;
-      gap: 1rem;
-  }
-  
-  /* Estilos para os botões (sem alterações) */
-  .botao {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--cor-primaria);
-      background-color: transparent;
-      border: 2px solid var(--cor-primaria);
-      border-radius: 5px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-  }
-  
-  .botao:hover {
-      background-color: var(--cor-primaria);
-      color: var(--cor-fundo);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
-  }
-  
-  .botao i {
-      margin-right: 0.5rem;
-      font-size: 1.2rem;
-  }
-  
-  /* Efeito de brilho (se já não estiver definido) */
-  @keyframes brilho {
-      from {
-          text-shadow: 0 0 10px var(--cor-primaria), 0 0 20px var(--cor-primaria);
-      }
-      to {
-          text-shadow: 0 0 20px var(--cor-primaria), 0 0 40px var(--cor-primaria);
-      }
-  }
+.home-conteudo .avatar-container {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
 
+.avatar {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
 
-/* Estilos para a seção Sobre */
+.home-conteudo .texto-container {
+    width: 70%;
+    padding-left: 2rem;
+    text-align: left;
+}
+
+#home .titulo {
+    font-size: 3rem;
+    color: var(--cor-primaria);
+    animation: brilho 2s infinite alternate;
+    margin-bottom: 0.5rem;
+}
+
+#home .subtitulo {
+    font-size: 1.5rem;
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.botoes {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cor-primaria);
+    background-color: transparent;
+    border: 2px solid var(--cor-primaria);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botao:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.botao i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+@keyframes brilho {
+    from {
+        text-shadow: 0 0 10px var(--cor-primaria), 0 0 20px var(--cor-primaria);
+    }
+
+    to {
+        text-shadow: 0 0 20px var(--cor-primaria), 0 0 40px var(--cor-primaria);
+    }
+}
+
+/* Seção Sobre */
 #sobre {
     padding: 4rem 0;
     border-bottom: 2px solid var(--cor-primaria);
-    text-align: center; /* Centraliza o título */
+    text-align: center;
 }
 
 #sobre .container {
-    max-width: 800px; /* Limita a largura do conteúdo */
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 20px; /* Adiciona espaço nas laterais */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 #sobre h2 {
-    font-size: 2.5rem; /* Aumenta o tamanho do título */
+    font-size: 2.5rem;
     color: var(--cor-primaria);
-    margin-bottom: 1.5rem; /* Adiciona espaço abaixo do título */
+    margin-bottom: 1.5rem;
 }
 
 .descricao-pessoal {
@@ -246,23 +239,136 @@ section {
 }
 
 .descricao-pessoal-conteudo {
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: left;
 }
 
 .descricao-pessoal-conteudo p {
-    font-size: 1.2rem; /* Aumenta o tamanho da fonte */
-    line-height: 1.7; /* Aumenta o espaçamento entre linhas */
-    margin-bottom: 1.5rem; /* Adiciona espaço entre os parágrafos */
-    color: var(--cor-texto); /* Define a cor do texto */
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--cor-texto);
 }
 
 .descricao-pessoal-conteudo strong {
-    color: var(--cor-primaria); /* Define a cor das palavras em destaque */
+    color: var(--cor-primaria);
     font-weight: bold;
 }
 
 .separador {
     border: none;
-    border-top: 1px solid var(--cor-primaria); /* Cor da linha */
+    border-top: 1px solid var(--cor-primaria);
     margin: 2rem 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0; /* Remove o padding superior no body */
+    }
+
+    nav {
+        height: auto;
+        padding: 0.5rem 0;
+    }
+
+    nav .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    section {
+        padding: 3rem 0;
+        min-height: auto;
+    }
+
+    #home {
+        padding: 3rem 0;
+    }
+
+    #home .home-conteudo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        width: 90%;
+    }
+
+    .home-conteudo .avatar-container {
+        width: 60%;
+        max-width: 250px;
+        min-width: 180px;
+        margin-bottom: 1rem;
+    }
+
+    .avatar {
+        width: 100%;
+        max-width: 250px;
+        min-width: 180px;
+    }
+
+    .home-conteudo .texto-container {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #home .titulo {
+        font-size: 2.5rem;
+    }
+
+    #home .subtitulo {
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+
+    .botoes {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1rem;
+        width: 100%;
+        gap: 0.5rem; /* Reduzi o espaço entre os botões */
+    }
+
+    .botoes a.botao {
+        margin: 0; /* Removi a margem dos botões individualmente */
+        font-size: 0.9rem; /* Reduzi um pouco o tamanho da fonte dos botões */
+        padding: 0.5rem 1rem; /* Reduzi o padding dos botões */
+    }
+
+    #sobre {
+        padding: 3rem 0;
+    }
+
+    #sobre .container {
+        padding: 0 10px; /* Reduzi o padding nas laterais */
+    }
+
+    #sobre h2 {
+        font-size: 2rem;
+    }
+
+    .descricao-pessoal-conteudo p {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .separador {
+        margin: 2rem auto;
+    }
+
+    /* Fundo interativo */
+    .demo-1 .main-title {
+        font-size: 3em;
+    }
 }
