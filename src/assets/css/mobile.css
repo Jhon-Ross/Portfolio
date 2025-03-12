@@ -1,0 +1,42 @@
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .titulo {
+        font-size: 1.5rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 3rem 0; /* Ajuste para dispositivos móveis */
+        margin-bottom: 2rem; /* Ajuste para dispositivos móveis */
+    }
+
+    .projeto {
+        text-align: center;
+    }
+}

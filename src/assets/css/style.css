@@ -1,0 +1,189 @@
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #00ffff; /* Azul neon claro */
+    --cor-secundaria: #ffffff; /* Branco */
+    --cor-fundo: #1a1a1a; /* Preto quase sólido */
+    --cor-texto: #e0e0e0; /* Cinza claro */
+    --cor-hover: #00cccc; /* Azul mais escuro para hover */
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    padding-top: 10px; /* Ajuste conforme a altura da barra de navegação */
+}
+
+/* Barra de Navegação (Cabeçalho Fixo) */
+nav {
+    background-color: var(--cor-fundo);
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--cor-primaria);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px; /* Ajuste a altura da barra de navegação */
+}
+
+nav .container {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Estilo das seções */
+section {
+    height: 100vh; /* Altura fixa de 100% da viewport */
+    padding: 4rem 0; /* Espaçamento interno */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    border-bottom: 2px solid var(--cor-primaria); /* Barra de separação */
+}
+
+/* Header */
+#large-header {
+    background-image: url('/src/assets/img/Home.jpg');
+    position: absolute;
+    z-index: -1; /* Coloca o fundo atrás de tudo */
+}
+
+.main-title {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	color: #f9f1e9;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+}
+
+.demo-1 .main-title {
+	text-transform: uppercase;
+	font-size: 4.2em;
+	letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+	font-weight: 200;
+}
+
+@media only screen and (max-width : 768px) {
+	.demo-1 .main-title {
+		font-size: 3em;
+	}
+}
+
+.avatar {
+    width: 20%; /* Define a largura como 20% do contêiner pai */
+    aspect-ratio: 1 / 1; /* Mantém a proporção 1:1 (quadrado ou círculo) */
+    border: 1px solid; /* Adiciona uma borda de 1px (cor padrão é preta) */
+    border-radius: 50%; /* Transforma a imagem em um círculo */
+    position: relative; /* Define o posicionamento como relativo */
+    display: block; /* Faz a imagem se comportar como um bloco */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+/* Estilo do título e subtítulo na seção Home */
+#home .titulo {
+    font-size: 3rem; /* Tamanho da fonte */
+    color: var(--cor-primaria); /* Cor do texto */
+    animation: brilho 2s infinite alternate; /* Efeito de brilho */
+    margin-bottom: 0.5rem; /* Margem inferior */
+    text-align: center; /* Centraliza o texto */
+}
+#home .subtitulo {
+    font-size: 1.5rem; /* Tamanho da fonte */
+    color: var(--cor-secundaria); /* Cor do texto */
+    font-weight: bold; /* Deixa em negrito */
+    margin-bottom: 2rem; /* Margem inferior */
+    text-align: center; /* Centraliza o texto */
+}
+/* Efeito de brilho (se já não estiver definido) */
+@keyframes brilho {
+    from {
+        text-shadow: 0 0 10px var(--cor-primaria), 0 0 20px var(--cor-primaria);
+    }
+    to {
+        text-shadow: 0 0 20px var(--cor-primaria), 0 0 40px var(--cor-primaria);
+    }
+}
+
+/* Estilo para o contêiner dos botões */
+.botoes {
+    display: flex; /* Para alinhar os botões horizontalmente */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    margin-top: 1.5rem; /* Espaçamento acima dos botões */
+    gap: 1rem; /* Espaçamento entre os botões */
+}
+
+/* Estilo base para os botões */
+.botao {
+    display: inline-flex; /* Para alinhar ícone e texto */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 0.75rem 1.5rem; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: 500; /* Peso da fonte */
+    color: var(--cor-primaria); /* Cor do texto */
+    background-color: transparent; /* Fundo transparente */
+    border: 2px solid var(--cor-primaria); /* Borda com cor primária */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove sublinhado */
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Efeito hover para os botões */
+.botao:hover {
+    background-color: var(--cor-primaria); /* Fundo com cor primária */
+    color: var(--cor-fundo); /* Texto com cor de fundo */
+    transform: translateY(-2px); /* Efeito de levantar o botão */
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3); /* Sombra neon */
+}
+
+/* Estilo para os ícones dentro dos botões */
+.botao i {
+    margin-right: 0.5rem; /* Espaçamento entre ícone e texto */
+    font-size: 1.2rem; /* Tamanho do ícone */
+}
