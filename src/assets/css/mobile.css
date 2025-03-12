@@ -1,32 +1,103 @@
 /* Media Query para telas menores (max-width: 768px) */
 @media (max-width: 768px) {
+    /* Resetando margens e paddings padrões para evitar problemas */
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ajustes na barra de navegação */
+    nav {
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 0.5rem 0; /* Reduz o padding vertical */
+        position: fixed; /* Garante que permaneça no topo */
+    }
+
+    nav .container {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    nav ul {
+        flex-direction: column; /* Empilha os itens do menu verticalmente */
+        margin-top: 0.5rem; /* Adiciona um espaço acima dos itens */
+        width: 100%; /* Garante que o menu ocupe toda a largura */
+        text-align: center; /* Centraliza os itens do menu */
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Adiciona margem vertical entre os itens */
+    }
+
+    /* Seção Home */
+    #home {
+        min-height: auto; /* Remove a altura mínima */
+        padding: 6rem 0 2rem; /* Aumenta o padding no topo e reduz na parte inferior */
+    }
+
     #home .home-conteudo {
-        top: 10%;    /* Ajuste a posição vertical para telas menores */
-        left: 5%;   /* Ajuste a posição horizontal para telas menores */
-        flex-direction: column; /* Empilha os elementos verticalmente */
-        align-items: center; /* Centraliza os elementos horizontalmente */
+        position: relative; /* Volta ao posicionamento relativo */
+        top: auto; /* Reseta o posicionamento vertical */
+        left: auto; /* Reseta o posicionamento horizontal */
+        flex-direction: column; /* Empilha os elementos */
+        align-items: center; /* Centraliza os elementos */
         text-align: center; /* Centraliza o texto */
+        padding: 1rem; /* Reduz o padding */
     }
 
     .home-conteudo .avatar-container {
-        width: auto; /* O container se ajusta ao tamanho do avatar */
-        margin-bottom: 1rem; /* Adiciona um espaço abaixo do avatar */
+        width: 50%; /* Ajusta a largura do container do avatar */
+        max-width: 200px; /* Define uma largura máxima */
+        min-width: 150px; /*  Tamanho MÍNIMO para o avatar */
+        margin-bottom: 1rem; /* Adiciona margem inferior */
+    }
+
+    .avatar {
+        width: 100%;  /* Garante que o avatar ocupe toda a largura do container */
+        max-width: 200px; /* Limita o tamanho máximo do avatar */
+        min-width: 150px; /* Tamanho MINIMO para o avatar */
     }
 
     .home-conteudo .texto-container {
-        width: 100%; /* Ocupa 100% da largura do home-conteudo */
-        padding-left: 0; /* Remove o espaçamento à esquerda */
+        width: 100%; /* Ocupa toda a largura */
+        padding-left: 0; /* Remove o padding esquerdo */
+    }
+
+    #home .titulo {
+        font-size: 2.5rem; /* Reduz o tamanho do título */
+    }
+
+    #home .subtitulo {
+        font-size: 1.2rem; /* Reduz o tamanho do subtítulo */
     }
 
     .botoes {
-        justify-content: center; /* Centraliza os botões */
+        flex-direction: column; /* Empilha os botões */
+        align-items: center; /* Centraliza os botões */
     }
-}
 
-/* Media Query para telas ainda menores (max-width: 480px) */
-@media (max-width: 480px) {
-    #home .home-conteudo {
-        top: 5%;    /* Ajuste a posição vertical para telas ainda menores */
-        left: 2%;   /* Ajuste a posição horizontal para telas ainda menores */
+    /* Seção Sobre */
+    #sobre {
+        padding: 3rem 0; /* Reduz o padding vertical */
     }
+
+    #sobre h2 {
+        font-size: 2rem; /* Reduz o tamanho do título */
+    }
+
+    .descricao-pessoal-conteudo p {
+        font-size: 1rem; /* Reduz o tamanho da fonte */
+    }
+
+    /* Estilo geral das seções */
+    section {
+        height: auto; /* Remove a altura fixa */
+        padding: 3rem 0; /* Reduz o padding vertical */
+    }
+
+    .main-title {
+        font-size: 2.5em;
+    }
+
 }
