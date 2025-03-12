@@ -3,6 +3,10 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
+
 
 // Servir arquivos estáticos da raiz e da pasta "src"
 app.use(express.static(__dirname));
