@@ -484,10 +484,34 @@ section {
     background-color: var(--cor-hover);
 }
 
-.error-message {
-    color: red;
-    margin-top: 10px;
-    font-size: 0.9em;
+footer {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top: 2px solid var(--cor-primaria);
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: var(--cor-hover);
+    text-decoration: underline;
 }
 
 
