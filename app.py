@@ -11,8 +11,22 @@ app.logger.setLevel(logging.DEBUG)
 
 EMAILJS_SERVICE_ID = os.environ.get('EMAILJS_SERVICE_ID')
 EMAILJS_TEMPLATE_ID = os.environ.get('EMAILJS_TEMPLATE_ID')
-EMAILJS_PRIVATE_KEY = os.environ.get(
-    'EMAILJS_PRIVATE_KEY')  # Use a chave privada
+EMAILJS_PRIVATE_KEY = os.environ.get('EMAILJS_PRIVATE_KEY')
+EMAILJS_PUBLIC_KEY = os.environ.get(
+    'EMAILJS_PUBLIC_KEY')  # Adicione a chave pública
+
+# Função para determinar qual chave usar
+
+
+def get_emailjs_user_id():
+    if EMAILJS_PRIVATE_KEY:
+        return EMAILJS_PRIVATE_KEY
+    elif EMAILJS_PUBLIC_KEY:
+        return EMAILJS_PUBLIC_KEY
+    else:
+        app.logger.error(
+            "Nenhuma chave do EmailJS (privada ou pública) foi definida!")
+        return None  # Ou levante uma exceção
 
 
 @app.route('/', methods=['GET'])
@@ -27,10 +41,14 @@ def enviar_email():
         email = request.form['email']
         mensagem = request.form['mensagem']
 
+        user_id = get_emailjs_user_id()
+        if not user_id:
+            return jsonify({'success': False, 'message': 'Erro: Nenhuma chave do EmailJS definida!'})
+
         payload = {
             'service_id': EMAILJS_SERVICE_ID,
             'template_id': EMAILJS_TEMPLATE_ID,
-            'user_id': EMAILJS_PRIVATE_KEY,  # Use a chave privada
+            'user_id': user_id,  # Use a chave apropriada
             'template_params': {
                 'nome': nome,
                 'email': email,
