@@ -5,21 +5,25 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
+        // Captura os dados do formulário
         const nome = document.getElementById('nome').value;
         const email = document.getElementById('email').value;
         const mensagem = document.getElementById('mensagem').value;
 
-        const params = new URLSearchParams();
-        params.append('nome', nome);
-        params.append('email', email);
-        params.append('mensagem', mensagem);
+        // Cria um objeto com os dados
+        const formData = {
+            nome: nome,
+            email: email,
+            mensagem: mensagem
+        };
 
+        // Envia os dados para o back-end (Flask)
         fetch('/enviar', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json', // Indica que estamos enviando JSON
             },
-            body: params.toString()
+            body: JSON.stringify(formData) // Converte os dados para JSON
         })
         .then(response => {
             if (!response.ok) {
@@ -29,13 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if (data.success) {
-                alert(data.message); // Pode substituir por uma mensagem na página
-                form.reset();
+                alert(data.message); // Exibe mensagem de sucesso
+                form.reset(); // Limpa o formulário
             } else {
                 if (mensagemErro) {
-                    mensagemErro.textContent = data.message;
+                    mensagemErro.textContent = data.message; // Exibe mensagem de erro na página
                 } else {
-                    alert(data.message);
+                    alert(data.message); // Exibe mensagem de erro em um alerta
                 }
             }
         })

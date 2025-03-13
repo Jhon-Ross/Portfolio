@@ -1,23 +1,30 @@
 from flask import Flask, request, jsonify, render_template
+from flask_mail import Mail, Message
 import os
 from dotenv import load_dotenv
-import requests
 import logging
 
+# Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.logger.setLevel(logging.DEBUG)
 
-EMAILJS_SERVICE_ID = os.environ.get('EMAILJS_SERVICE_ID')
-EMAILJS_TEMPLATE_ID = os.environ.get('EMAILJS_TEMPLATE_ID')
-EMAILJS_PRIVATE_KEY = os.environ.get('EMAILJS_PRIVATE_KEY')
+# Configurações do Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Servidor SMTP do Gmail
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')  # Seu e-mail
+app.config['MAIL_PASSWORD'] = os.environ.get(
+    'MAIL_PASSWORD')  # Sua senha ou senha de app
 
-if not EMAILJS_PRIVATE_KEY:
-    app.logger.error(
-        "A chave privada do EmailJS (EMAILJS_PRIVATE_KEY) não foi definida!")
-    raise ValueError(
-        "A chave privada do EmailJS (EMAILJS_PRIVATE_KEY) não foi definida!")
+# Inicializa o Flask-Mail
+mail = Mail(app)
+
+# Verifica se as variáveis de ambiente foram configuradas
+if not app.config['MAIL_USERNAME'] or not app.config['MAIL_PASSWORD']:
+    app.logger.error("As credenciais de e-mail não foram configuradas!")
+    raise ValueError("As credenciais de e-mail não foram configuradas!")
 
 
 @app.route('/', methods=['GET'])
@@ -28,60 +35,38 @@ def index():
 @app.route('/enviar', methods=['POST'])
 def enviar_email():
     if request.method == 'POST':
-        nome = request.form.get('nome')
-        email = request.form.get('email')
-        mensagem = request.form.get('mensagem')
+        # Recebe os dados do front-end como JSON
+        data = request.json
+        nome = data.get('nome')
+        email = data.get('email')
+        mensagem = data.get('mensagem')
 
+        # Verifica se todos os campos foram preenchidos
         if not nome or not email or not mensagem:
             app.logger.warning("Dados do formulário incompletos.")
             return jsonify({'success': False, 'message': 'Por favor, preencha todos os campos do formulário.'}), 400
 
-        payload = {
-            'service_id': EMAILJS_SERVICE_ID,
-            'template_id': EMAILJS_TEMPLATE_ID,
-            'user_id': EMAILJS_PRIVATE_KEY,
-            'template_params': {
-                'nome': nome,
-                'email': email,
-                'mensagem': mensagem
-            }
-        }
-
-        app.logger.debug(f"Payload: {payload}")
+        # Cria a mensagem de e-mail
+        msg = Message(
+            subject=f"Mensagem de {nome}",  # Assunto do e-mail
+            sender=app.config['MAIL_USERNAME'],  # Remetente
+            # Destinatário (pode ser o mesmo do remetente)
+            recipients=[app.config['MAIL_USERNAME']],
+            body=f"""
+            Nome: {nome}
+            E-mail: {email}
+            Mensagem: {mensagem}
+            """
+        )
 
         try:
-            response = requests.post(
-                'https://api.emailjs.com/api/v1.0/email/send', json=payload)
-
-            # Log dos cabeçalhos da resposta
-            app.logger.debug(f"Response Headers: {response.headers}")
-
-            # Log do conteúdo da resposta (texto)
-            app.logger.debug(f"Response Content: {response.text}")
-
-            try:
-                response_json = response.json()
-                if response.status_code != 200:
-                    error_message = response_json.get(
-                        'error', response.text)
-                    app.logger.error(
-                        f"Erro ao enviar e-mail (EmailJS): {error_message}")
-                    return jsonify({'success': False, 'message': f'Erro ao enviar e-mail: {error_message}'}), response.status_code
-                else:
-                    app.logger.info("E-mail enviado com sucesso!")
-                    return jsonify({'success': True, 'message': 'E-mail enviado com sucesso!'}), 200
-
-            except ValueError:  # Erro ao decodificar o JSON
-                app.logger.error(
-                    f"Erro ao decodificar JSON da resposta: {response.text}")
-                return jsonify({'success': False, 'message': f'Erro ao enviar e-mail: Resposta inválida do servidor'}), 500
-
-        except requests.exceptions.RequestException as e:
-            app.logger.error(f"Erro de conexão ao enviar e-mail: {str(e)}")
-            return jsonify({'success': False, 'message': f'Erro de conexão: {str(e)}'}), 500
+            # Envia o e-mail
+            mail.send(msg)
+            app.logger.info("E-mail enviado com sucesso!")
+            return jsonify({'success': True, 'message': 'E-mail enviado com sucesso!'}), 200
         except Exception as e:
-            app.logger.error(f"Erro inesperado ao enviar e-mail: {str(e)}")
-            return jsonify({'success': False, 'message': f'Erro inesperado: {str(e)}'}), 500
+            app.logger.error(f"Erro ao enviar e-mail: {str(e)}")
+            return jsonify({'success': False, 'message': f'Erro ao enviar e-mail: {str(e)}'}), 500
 
     else:
         return jsonify({'success': False, 'message': 'Método não permitido!'}), 405
