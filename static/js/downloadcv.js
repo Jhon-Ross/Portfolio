@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() { // Garante que o DOM 
         downloadCvButton.addEventListener('click', function(event) {
             event.preventDefault(); // Impede o link de redirecionar
 
-            const pdfUrl = '/src/assets/pdfs/Jhon-Ross.pdf';
+            const pdfUrl = '/static/assets/pdfs/Jhon-Ross.pdf';
             const link = document.createElement('a');
             link.href = pdfUrl;
             link.download = 'Jhon-Ross-CV.pdf'; // Define o nome do arquivo a ser baixado
