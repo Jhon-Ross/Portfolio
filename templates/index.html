@@ -143,22 +143,24 @@
 
 <!-- Seção Contato -->
 <section id="contato">
-     <!-- Fundo interativo da seção Contato -->
-     <div id="large-header-contato" class="large-header">
-        <canvas id="demo-canvas-contato"></canvas>
+    <!-- Fundo interativo da seção Contato -->
+    <div id="large-header-contato" class="large-header">
+        <canvas id="demo-canvas-contato-contato"></canvas>
     </div>
     <div class="container">
         <h2>Contato</h2>
         <p>Gostou do meu trabalho? Entre em contato comigo!</p>
-        <form action="/enviar" method="post" id="form-contato">
+        <form id="form-contato"> <!-- Removido action e method -->
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required autocomplete="off" placeholder="Seu nome">
+            <input type="text" id="nome" name="nome" required autocomplete="off" placeholder="Seu nome" class="form-input">
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required autocomplete="off" placeholder="Seu e-mail">
+            <input type="email" id="email" name="email" required autocomplete="off" placeholder="Seu e-mail" class="form-input">
 
             <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Sua mensagem"></textarea>
+            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Sua mensagem" autocomplete="off" class="form-textarea"></textarea> <!-- Adicionado autocomplete="off" -->
+
+            <div id="mensagem-erro" class="error-message"></div> <!-- Elemento para mensagens de erro -->
 
             <button type="submit" class="btn">Enviar</button>
         </form>
