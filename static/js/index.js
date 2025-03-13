@@ -192,7 +192,3 @@ function initializeBackground(sectionId) {
 
 // Initialize the background for each section
 initializeBackground('home');
-initializeBackground('sobre');
-initializeBackground('projetos');
-initializeBackground('skills');
-initializeBackground('contato');

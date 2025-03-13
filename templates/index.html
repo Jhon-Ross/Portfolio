@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/src/assets/css/style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/desktop.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/mobile.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Adicione essas bibliotecas antes do seu script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js"></script>
-    <!-- Seu script do fundo interativo -->
-    <script src="/src/js/index.js" defer></script>
-    <script src="/src/js/downloadcv.js" defer></script>
-    <script src="/src/js/menu.js"></script>
+
+    <script src="{{ url_for('static', filename='js/formulario.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/downloadcv.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
     <title>Jhon Ross - Portfólio</title>
 
 </head>
@@ -40,14 +41,14 @@
         </div>
         <div class="home-conteudo">
           <div class="avatar-container">
-            <img src="/src/assets/img/jhon.png" alt="Avatar" class="avatar">
+            <img src="{{ url_for('static', filename='assets/img/jhon.png') }}" alt="Avatar" class="avatar">
           </div>
       
           <div class="texto-container">
             <h1 class="titulo">Jhon Ross</h1>
             <h2 class="subtitulo">Full Stack Developer & Web Designer</h2>
             <div class="botoes">
-                <a href="#" class="botao" id="download-cv-button"><i class="fas fa-download"></i> Download CV</a>
+                <a href="{{ url_for('static', filename='assets/pdfs/Jhon-Ross.pdf') }}" class="botao" id="download-cv-button"><i class="fas fa-download"></i> Download CV</a>
                 <a href="https://wa.me/5541997317190?text=Olá%20vi%20seu%20Portfólio" class="botao" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-envelope"></i> Contato
                 </a>                
@@ -83,19 +84,17 @@
 
     <!-- Seção Projetos -->
     <section id="projetos">
-        <!-- Fundo interativo da seção Projetos -->
-        <div id="large-header-projetos" class="large-header">
-            <canvas id="demo-canvas-projetos"></canvas>
-        </div>
         <div class="container">
             <h2>Projetos</h2>
 
-            <!-- Projeto 1 - DealHunter -->
-            <article class="projeto">
-                <h3>DealHunter</h3>
-                <p>Uma plataforma para encontrar as melhores ofertas automaticamente. Tecnologias utilizadas: Python, Flask, Web Scraping.</p>
-                <a href="https://github.com/Jhon-Ross/DealHunter" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
-            </article>
+        <!-- Projeto 1 - DealHunter -->
+        <article class="projeto">
+            <h3>DealHunter</h3>
+            <p><strong>DealHunter</strong> é uma plataforma desenvolvida em <strong>Python</strong> que utiliza <strong>Web Scraping</strong> para localizar automaticamente as melhores ofertas em sites de e-commerce.  
+            Com o uso do <strong>Selenium</strong> em modo headless, a ferramenta navega de forma eficiente e extrai dados em tempo real, eliminando a necessidade de buscas manuais.  
+            Ideal para quem deseja acompanhar promoções de forma prática e automatizada.</p>
+            <a href="https://github.com/Jhon-Ross/DealHunter" class="btn" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </article>
 
             <!-- Mais projetos podem ser adicionados abaixo -->
         </div>
@@ -177,18 +176,5 @@
             </p>
         </div>
     </footer>
-
-    <script>
-        // Script para o fundo da seção Home
-        // Adapte a lógica para cada canvas individual
-        const canvasHome = document.getElementById('demo-canvas-home');
-        // ... sua lógica para criar o fundo interativo no canvasHome ...
-
-        // Script para o fundo da seção Sobre
-        const canvasSobre = document.getElementById('demo-canvas-sobre');
-        // ... sua lógica para criar o fundo interativo no canvasSobre ...
-
-        // Repita para as outras seções
-    </script>
 </body>
 </html>

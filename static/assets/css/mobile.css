@@ -1,0 +1,168 @@
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0; /* Remove o padding superior no body */
+    }
+
+    section {
+        min-height: 100vh;
+    }
+
+    nav {
+        height: auto;
+        padding: 1rem 0; /* Mantenha o padding vertical */
+    }
+
+    /* Adicione padding-bottom ao container da nav */
+    nav .container {
+        padding-bottom: 5px; /* Ajuste este valor para o espaçamento desejado */
+    }
+
+    nav .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between; /* Alinha os itens nas extremidades */
+    }
+
+    nav ul {
+        position: absolute; /* Posiciona o menu absolutamente */
+        top: 100%;         /* Posiciona o menu abaixo da barra de navegação */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 255, 255, 0.1); /* Ciano transparente */
+        display: none; /* Oculta a lista de links */
+        flex-direction: column;
+        margin-top: 0;     /* Remove margem superior */
+        padding: 10px;      /* Adiciona preenchimento */
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adiciona uma sombra */
+    }
+
+    nav ul.active {
+        display: flex; /* Exibe a lista de links quando a classe 'active' é adicionada */
+    }
+
+    .nav-toggle {
+        display: block; /* Exibe o botão de menu */
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--cor-secundaria);
+        cursor: pointer;
+        padding: 0;
+    }
+
+    section {
+        padding: 3rem 0;
+        min-height: auto;
+    }
+
+    #home {
+        padding: 3rem 0;
+    }
+
+    #home .home-conteudo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        width: 90%;
+    }
+
+    .home-conteudo .avatar-container {
+        width: 60%;
+        max-width: 250px;
+        min-width: 180px;
+        margin-bottom: 1rem;
+    }
+
+    .avatar {
+        width: 100%;
+        max-width: 250px;
+        min-width: 180px;
+    }
+
+    .home-conteudo .texto-container {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #home .titulo {
+        font-size: 2.5rem;
+    }
+
+    #home .subtitulo {
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+
+    .botoes {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1rem;
+        width: 100%;
+        gap: 0.5rem; /* Reduzi o espaço entre os botões */
+    }
+
+    .botoes a.botao {
+        margin: 0; /* Removi a margem dos botões individualmente */
+        font-size: 0.9rem; /* Reduzi um pouco o tamanho da fonte dos botões */
+        padding: 0.5rem 1rem; /* Reduzi o padding dos botões */
+    }
+
+    #sobre {
+        padding: 3rem 0;
+    }
+
+    #sobre .container {
+        padding: 0 10px; /* Reduzi o padding nas laterais */
+    }
+
+    #sobre h2 {
+        font-size: 2rem;
+    }
+
+    .descricao-pessoal-conteudo p {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .separador {
+        margin: 2rem auto;
+    }
+
+    /* Fundo interativo */
+    .demo-1 .main-title {
+        font-size: 3em;
+    }
+    #projetos {
+        padding: 3rem 0;
+    }
+
+    #projetos h2 {
+        font-size: 2rem;
+    }
+
+    .projeto {
+        padding: 1.2rem;
+        margin: 1rem auto;
+    }
+
+    .projeto h3 {
+        font-size: 1.5rem;
+    }
+
+    .projeto p {
+        font-size: 1rem;
+    }
+
+    .projeto .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+}
