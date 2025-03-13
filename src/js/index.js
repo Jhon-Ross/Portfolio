@@ -1,6 +1,4 @@
-
-(function() {
-
+function initializeBackground(sectionId) {
     var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
 
     // Main
@@ -13,10 +11,18 @@
         height = window.innerHeight;
         target = {x: width/2, y: height/2};
 
-        largeHeader = document.getElementById('large-header');
+        largeHeader = document.getElementById('large-header-' + sectionId);
+        if (!largeHeader) {
+            console.error('Element with ID large-header-' + sectionId + ' not found.');
+            return;
+        }
         largeHeader.style.height = height+'px';
 
-        canvas = document.getElementById('demo-canvas');
+        canvas = document.getElementById('demo-canvas-' + sectionId);
+         if (!canvas) {
+            console.error('Element with ID demo-canvas-' + sectionId + ' not found.');
+            return;
+        }
         canvas.width = width;
         canvas.height = height;
         ctx = canvas.getContext('2d');
@@ -182,5 +188,11 @@
     function getDistance(p1, p2) {
         return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
     }
-    
-})();
+}
+
+// Initialize the background for each section
+initializeBackground('home');
+initializeBackground('sobre');
+initializeBackground('projetos');
+initializeBackground('skills');
+initializeBackground('contato');

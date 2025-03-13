@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Adicione essas bibliotecas antes do seu script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js"></script>
     <!-- Seu script do fundo interativo -->
     <script src="/src/js/index.js" defer></script>
-
-    <script src=""></script>
+    <script src="/src/js/downloadcv.js" defer></script>
+    <script src="/src/js/menu.js"></script>
     <title>Jhon Ross - Portfólio</title>
 
 </head>
 
 <body>
-    <!-- Barra de Navegação (Cabeçalho Fixo) -->
     <nav>
         <div class="container">
-            <ul>
+            <button class="nav-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#projetos">Projetos</a></li>
@@ -30,12 +33,11 @@
         </div>
     </nav>
 
-    <!-- Fundo interativo -->
-    <div id="large-header" class="large-header">
-        <canvas id="demo-canvas"></canvas>
-    </div>
-
     <section id="home">
+        <!-- Fundo interativo da seção Home -->
+        <div id="large-header-home" class="large-header">
+            <canvas id="demo-canvas-home"></canvas>
+        </div>
         <div class="home-conteudo">
           <div class="avatar-container">
             <img src="/src/assets/img/jhon.png" alt="Avatar" class="avatar">
@@ -45,17 +47,21 @@
             <h1 class="titulo">Jhon Ross</h1>
             <h2 class="subtitulo">Full Stack Developer & Web Designer</h2>
             <div class="botoes">
-              <a href="#" class="botao"><i class="fas fa-download"></i> Download CV</a>
-              <a href="#" class="botao"><i class="fas fa-envelope"></i> Contato</a>
+                <a href="#" class="botao" id="download-cv-button"><i class="fas fa-download"></i> Download CV</a>
+                <a href="https://wa.me/5541997317190?text=Olá%20vi%20seu%20Portfólio" class="botao" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-envelope"></i> Contato
+                </a>                
             </div>
           </div>
         </div>
       </section>
 
-
-
     <!-- Seção Sobre -->
     <section id="sobre">
+        <!-- Fundo interativo da seção Sobre -->
+        <div id="large-header-sobre" class="large-header">
+            <canvas id="demo-canvas-sobre"></canvas>
+        </div>
         <div class="container">
             <h2>Sobre Mim</h2>
             <div class="descricao-pessoal">
@@ -77,48 +83,71 @@
 
     <!-- Seção Projetos -->
     <section id="projetos">
+        <!-- Fundo interativo da seção Projetos -->
+        <div id="large-header-projetos" class="large-header">
+            <canvas id="demo-canvas-projetos"></canvas>
+        </div>
         <div class="container">
             <h2>Projetos</h2>
-            <div class="projeto">
-                <h3>Projeto 1</h3>
-                <p>Descrição breve do projeto. Tecnologias utilizadas: HTML, CSS, JavaScript.</p>
-                <a href="#" class="btn">Ver Projeto</a>
-            </div>
-            <div class="projeto">
-                <h3>Projeto 2</h3>
-                <p>Descrição breve do projeto. Tecnologias utilizadas: Python, Flask, SQL.</p>
-                <a href="#" class="btn">Ver Projeto</a>
-            </div>
-            <!-- Adicione mais projetos conforme necessário -->
+
+            <!-- Projeto 1 - DealHunter -->
+            <article class="projeto">
+                <h3>DealHunter</h3>
+                <p>Uma plataforma para encontrar as melhores ofertas automaticamente. Tecnologias utilizadas: Python, Flask, Web Scraping.</p>
+                <a href="https://github.com/Jhon-Ross/DealHunter" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
+            </article>
+
+            <!-- Mais projetos podem ser adicionados abaixo -->
         </div>
     </section>
+
 
     <!-- Seção Skills -->
     <section id="skills">
         <div class="container">
             <h2>Skills</h2>
-            <ul>
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>TypeScript</li>
-                <li>Lua</li>
-                <li>Flask</li>
-                <li>React</li>
-                <li>HTML & CSS</li>
-                <li>jQuery</li>
-                <li>Bootstrap</li>
-                <li>SQL</li>
-                <li>Git</li>
-                <li>CorelDraw</li>
-                <li>Photoshop</li>
-                <li>Stability.ai</li>
-                <li>OpenCV</li>
-            </ul>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <i class="fa-brands fa-python"></i>
+                    <h3>Python</h3>
+                    <p>Automação, Web Scraping, APIs e IA.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fa-brands fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Desenvolvimento Frontend e Backend.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fa-brands fa-react"></i>
+                    <h3>React</h3>
+                    <p>Criação de interfaces web dinâmicas.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fa-brands fa-html5"></i>
+                    <h3>HTML & CSS</h3>
+                    <p>Estruturação e estilização de sites.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fa-brands fa-git"></i>
+                    <h3>Git</h3>
+                    <p>Controle de versão e colaboração.</p>
+                </div>
+                <div class="skill-box">
+                    <i class="fa-brands fa-bootstrap"></i>
+                    <h3>Bootstrap</h3>
+                    <p>Desenvolvimento responsivo ágil.</p>
+                </div>
+            </div>
         </div>
     </section>
 
+
 <!-- Seção Contato -->
 <section id="contato">
+     <!-- Fundo interativo da seção Contato -->
+     <div id="large-header-contato" class="large-header">
+        <canvas id="demo-canvas-contato"></canvas>
+    </div>
     <div class="container">
         <h2>Contato</h2>
         <p>Gostou do meu trabalho? Entre em contato comigo!</p>
@@ -140,7 +169,7 @@
     <!-- Rodapé -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Jhon Ross. Todos os direitos reservados.</p>
+            <p>© 2025 Jhon Ross. Todos os direitos reservados.</p>
             <p>
                 <a href="https://github.com/Jhon-Ross" target="_blank">GitHub</a> |
                 <a href="https://www.linkedin.com/in/jhon-ross/" target="_blank">LinkedIn</a> |
@@ -148,5 +177,18 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Script para o fundo da seção Home
+        // Adapte a lógica para cada canvas individual
+        const canvasHome = document.getElementById('demo-canvas-home');
+        // ... sua lógica para criar o fundo interativo no canvasHome ...
+
+        // Script para o fundo da seção Sobre
+        const canvasSobre = document.getElementById('demo-canvas-sobre');
+        // ... sua lógica para criar o fundo interativo no canvasSobre ...
+
+        // Repita para as outras seções
+    </script>
 </body>
 </html>
