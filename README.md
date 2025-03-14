@@ -1,7 +1,7 @@
 # Meu Portfólio
 <a href="https://jhonrossportfolio-813cd8a5c346.herokuapp.com/#home">Meu Portfólio.</a>
 
-Bem-vindo ao meu portfólio! Este repositório contém o projeto que desenvolvi para demonstrar minhas habilidades em desenvolvimento web, utilizando **HTML**, **CSS** e **JavaScript** no frontend, e **Python** com **Flask** no backend.
+Bem-vindo ao meu portfólio! Este repositório contém o projeto que desenvolvi para demonstrar minhas habilidades em desenvolvimento web, utilizando **HTML**, **CSS** e **JavaScript** no frontend, e **Python** com **Flask** no backend. Além disso, implementei um formulário de contato funcional que utiliza o **Flask-Mail** para enviar e-mails diretamente do site.
 
 ## Tecnologias Utilizadas
 ### Frontend
@@ -12,6 +12,19 @@ Bem-vindo ao meu portfólio! Este repositório contém o projeto que desenvolvi 
 ### Backend
 - **Python**: Lógica de negócio e manipulação de dados.
 - **Flask**: Framework para criação da API e gerenciamento de rotas.
+- **Flask-Mail**: Integração para envio de e-mails a partir do formulário de contato.
+
+## Funcionalidades Principais
+- **Formulário de Contato**: Desenvolvi um formulário de contato funcional que permite aos visitantes enviarem mensagens diretamente para o meu e-mail. Utilizei o **Flask-Mail** para configurar o envio de e-mails, garantindo que as mensagens sejam entregues de forma segura e eficiente.
+- **Design Responsivo**: O portfólio foi projetado para ser totalmente responsivo, garantindo uma experiência de usuário consistente em dispositivos móveis, tablets e desktops.
+- **Integração com Flask**: O backend foi desenvolvido utilizando o framework Flask, que gerencia as rotas e a lógica do servidor, além de integrar-se perfeitamente com o frontend.
+
+## Como Executar o Projeto
+Para rodar este projeto localmente, siga os passos abaixo:
+
+### Pré-requisitos
+- Python 3.x instalado.
+- Git instalado (opcional, para clonar o repositório).
 
 ## Como Executar o Projeto
 Para rodar este projeto localmente, siga os passos abaixo:
